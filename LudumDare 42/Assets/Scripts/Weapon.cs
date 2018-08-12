@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour {
 
     public float fireRate = 0;
-    public float Damage = 10;
+    public int Damage = 10;
     public LayerMask whatToHit;
     float timeToSpawnEffect = 0;
     public float effectSpawnRate = 10;
@@ -66,13 +66,23 @@ public class Weapon : MonoBehaviour {
         Debug.DrawLine(firePointPosition,(mousePosition-firePointPosition)*100,Color.cyan);
         if(hit.collider != null)
         {
-            Debug.DrawLine(firePointPosition,hit.point,Color.red);
-            Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage.");
+            Debug.DrawLine(firePointPosition,hit.point,Color.red);            
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            if(enemy != null)
+            {
+                enemy.DamageEnemy(Damage);
+                Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage.");
+            }
         }
     }
 
     void Effect()
     {
         Instantiate(BulletTrailPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    public static void KillEnemy(Enemy enemy)
+    {
+        Destroy(enemy.gameObject);
     }
 }
