@@ -6,20 +6,19 @@ public class PlayerMovement : MonoBehaviour {
 
     Rigidbody2D playerRB;
     public float maxSpeed;
-    //Animator playerAnim;
-
+    Animator playerAnim;
     //Flip the player
     bool flipPlayer = true;
-    SpriteRenderer playerRender;
+    public SpriteRenderer brazo, mano, hombro;
+    public SpriteRenderer[] playerRender = new SpriteRenderer[6];
 
 	// Use this for initialization
 	void Start () {
         playerRB = GetComponent<Rigidbody2D>();
-        playerRender = GetComponent<SpriteRenderer>();
-        //playerAnim = GetComponent<Animator>();		
+        playerAnim = GetComponentInChildren<Animator>();		
 	}
 	
-	// Update is called once per frame
+	// Update is called once per frames
 	void Update () {
 
         float movement = Input.GetAxis("Horizontal");
@@ -37,12 +36,15 @@ public class PlayerMovement : MonoBehaviour {
         playerRB.velocity = new Vector2(movement * maxSpeed, playerRB.velocity.y);
 
         //Player  Running
-        //playerAnim.SetFloat("SpeedMovement", Mathf.Abs(movement));
+        playerAnim.SetFloat("Speed", Mathf.Abs(movement));
      
     }
     void Flip()
     {
+		
         flipPlayer = !flipPlayer;
-        playerRender.flipX = !playerRender.flipX; 
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+
+        
     }
 }

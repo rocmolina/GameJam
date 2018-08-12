@@ -34,7 +34,7 @@ public class Weapon : MonoBehaviour {
         
         if(fireRate == 0)
         {
-            if(Input.GetKeyDown(KeyCode.Mouse0))
+            if(Input.GetKey(KeyCode.Mouse0))
             {
                 Shoot();
             }
@@ -42,7 +42,7 @@ public class Weapon : MonoBehaviour {
         }
         else
         {
-            if(Input.GetKeyDown(KeyCode.Mouse0) && Time.time > timeToFire)
+            if(Input.GetKey(KeyCode.Mouse0) && Time.time > timeToFire)
             {
                 timeToFire = Time.time + 1 / fireRate;
                 Shoot();
