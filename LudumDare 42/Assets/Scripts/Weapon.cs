@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour {
 
+    public PlayerMovement playerMovement;
+
     public float fireRate = 0;
     public int Damage = 10;
     public LayerMask whatToHit;
@@ -78,6 +80,7 @@ public class Weapon : MonoBehaviour {
 
     void Effect()
     {
+       
         Instantiate(BulletTrailPrefab, firePoint.position, firePoint.rotation);
     }
 

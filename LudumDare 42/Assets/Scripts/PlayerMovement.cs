@@ -8,12 +8,13 @@ public class PlayerMovement : MonoBehaviour {
     public float maxSpeed;
     Animator playerAnim;
     //Flip the player
-    bool flipPlayer = true;
+    public bool flipPlayer = true;
     public SpriteRenderer brazo, mano, hombro;
     public SpriteRenderer[] playerRender = new SpriteRenderer[6];
 
 	// Use this for initialization
 	void Start () {
+
         playerRB = GetComponent<Rigidbody2D>();
         playerAnim = GetComponentInChildren<Animator>();		
 	}
