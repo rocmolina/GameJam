@@ -1,0 +1,15 @@
+
+Shooter donde se disminuye el espacio con el tiempo
+
+La camara se acerca con el tiempo
+Si matas a un enemigo la camara se aleja un poco
+Si te toca un enemigo la camara se acerca un poco
+Los enemigos pueden venir de todos lados
+Una sola escena.
+
+Puntuacion en base al tiempo vida
+Multiplicador de puntuacion por combo de kills
+Registrar un highscore
+
+Habilidad que regresa la camara a su punto inicial
+
