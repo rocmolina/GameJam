@@ -87,5 +87,6 @@ public class Weapon : MonoBehaviour {
     public static void KillEnemy(Enemy enemy)
     {
         Destroy(enemy.gameObject);
+        ScoreScript.scoreValue += 10;
     }
 }
