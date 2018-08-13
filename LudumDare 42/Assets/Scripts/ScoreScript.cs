@@ -59,7 +59,7 @@ public class ScoreScript : MonoBehaviour {
         }
 
 
-        yield return new WaitForSeconds(0.1f);s
+        yield return new WaitForSeconds(0.1f);
         StartCoroutine("Score");      
     }
 }
