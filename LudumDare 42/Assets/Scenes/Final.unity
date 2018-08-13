@@ -808,6 +808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplicador: 10
+  gameover: 0
+  iniciarContador: 0
 --- !u!1001 &1272597720
 Prefab:
   m_ObjectHideFlags: 0
@@ -1332,6 +1334,7 @@ MonoBehaviour:
   zoomValue: 0.05
   playerHittedValue: 0.5
   enemyDestroyedValue: 1
+  score: {fileID: 1054744738}
 --- !u!1 &1820501689
 GameObject:
   m_ObjectHideFlags: 0
