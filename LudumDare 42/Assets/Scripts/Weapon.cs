@@ -87,6 +87,8 @@ public class Weapon : MonoBehaviour {
     public static void KillEnemy(Enemy enemy)
     {
         Destroy(enemy.gameObject);
+        CameraControl.enemyDestroyed = true;
+        CameraControl.activeConstantZoom = false;
         ScoreScript.scoreValue += 10;
     }
 }
