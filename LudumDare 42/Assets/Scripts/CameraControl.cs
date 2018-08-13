@@ -58,7 +58,7 @@ public class CameraControl : MonoBehaviour {
 
         followPlayer();
 
-        if (currentZoom > maxZoom && activeConstantZoom == true)
+       if (currentZoom > maxZoom && activeConstantZoom == true)
             constantZoom();
 
         if (playerHitted == true)
@@ -106,7 +106,7 @@ public class CameraControl : MonoBehaviour {
     void constantZoom()
     {
 
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, cam.orthographicSize - zoomValue, Time.deltaTime * smooth);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, cam.orthographicSize - zoomValue, Time.fixedDeltaTime *smooth);
         currentZoom = cam.orthographicSize;
 
 
@@ -114,7 +114,7 @@ public class CameraControl : MonoBehaviour {
 
     public void playerHittedZoom()
     {
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, cam.orthographicSize - playerHittedValue, Time.deltaTime * smooth);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, cam.orthographicSize - playerHittedValue, Time.fixedDeltaTime * smooth);
         currentZoom = cam.orthographicSize;
         playerHitted = false;
         activeConstantZoom = true;
@@ -123,10 +123,22 @@ public class CameraControl : MonoBehaviour {
 
     public void enemyDestroyedZoom()
     {
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, cam.orthographicSize + enemyDestroyedValue, Time.deltaTime * smooth);
-        currentZoom = cam.orthographicSize;
-        enemyDestroyed = false;
-        activeConstantZoom = true;
+        if (currentZoom + enemyDestroyedValue >= minZoom )
+        {
+
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, minZoom , 1);
+            currentZoom = cam.orthographicSize;
+            enemyDestroyed = false;
+            activeConstantZoom = true;
+
+        }
+        else
+        {
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, cam.orthographicSize + enemyDestroyedValue, 1);
+            currentZoom = cam.orthographicSize;
+            enemyDestroyed = false;
+            activeConstantZoom = true;
+        }
 
 
     }
