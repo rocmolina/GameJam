@@ -14,8 +14,8 @@ public class ActiveJump : MonoBehaviour {
 		
 	}
 
-   /* public void activeJump()
+    public void activeJump()
     {
         PlayerMovement.PlayerJumpFinished = true;
-    } */
+    } 
 }
