@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreScript : MonoBehaviour {
 
-    public static int scoreValue = 0;
+    public float multiplicador;
     Text score;
 
 	// Use this for initialization
@@ -18,7 +18,7 @@ public class ScoreScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        score.text = "Score: " + scoreValue;
+        score.text = (Time.time * multiplicador).ToString("0");
 		
 	}
 }
