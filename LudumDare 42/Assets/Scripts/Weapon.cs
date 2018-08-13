@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour {
 
     float timeToFire = 0;
     Transform firePoint;
+    public Transform PartToRotate;
 
 	// Use this for initialization
 	void Awake () {
@@ -90,11 +91,13 @@ public class Weapon : MonoBehaviour {
         else
         {
             Quaternion newRotation = firePoint.rotation;
+            newRotation.z += rotationOffset;
             //newRotation.z += rotationOffset;
-            newRotation.z *= -1;
+            //newRotation.z *= -1;
             //newRotation.w *= -1;
+            newRotation.Normalize();
             Debug.Log("New Rotation:" + newRotation.ToString());
-            Instantiate(BulletTrailPrefab, firePoint.position, newRotation);
+            Instantiate(BulletTrailPrefab, firePoint.position,newRotation);
         }
 
     }

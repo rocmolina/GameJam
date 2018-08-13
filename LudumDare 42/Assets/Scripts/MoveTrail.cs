@@ -18,7 +18,7 @@ public class MoveTrail : MonoBehaviour {
 	void Update () {
 
         //if (playerMovement.flipPlayer == true)
-           transform.Translate(Vector3.right * Time.deltaTime * moveSpeed,Space.Self);
+           //transform.Translate(Vector3.right * Time.deltaTime * moveSpeed,Space.Self);
 
         /*else
         {
@@ -28,7 +28,7 @@ public class MoveTrail : MonoBehaviour {
        
 
         this.enabled = false;*/
-        Destroy(gameObject,0.25f);
+        //Destroy(gameObject,0.25f);
 
 	}
 }

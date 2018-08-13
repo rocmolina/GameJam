@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    [Header("Player Stats")]
+
     Rigidbody2D playerRB;
     public float maxSpeed;
     Animator playerAnim;
@@ -11,9 +13,11 @@ public class PlayerMovement : MonoBehaviour {
     public bool flipPlayer = true;
     public SpriteRenderer brazo, mano, hombro;
     public SpriteRenderer[] playerRender = new SpriteRenderer[6];
+    public Transform firepoint;
 
     bool canMove = true;
-    //Jump
+
+    [Header("Jump")]
     bool onFLoor = false;
     float checkFloorRadius = 0.2f;
     public LayerMask floorMask;
@@ -91,6 +95,13 @@ public class PlayerMovement : MonoBehaviour {
 		
         flipPlayer = !flipPlayer;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+
+        if(flipPlayer == false)
+        {
+            Vector3 inversion = firepoint.localScale;
+            inversion.x *= -1;
+            firepoint.localScale = inversion;
+        }
 
         
     }
