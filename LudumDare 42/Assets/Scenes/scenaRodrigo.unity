@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &31651100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &45605750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,11 +627,11 @@ MonoBehaviour:
   xSmooth: 1.5
   ySmooth: 1.5
   player: {fileID: 0}
-  maxZoom: 0.4
-  minZoom: 5
+  maxZoom: 1.5
+  minZoom: 7
   currentZoom: 0
   smooth: 10
-  zoomValue: 0.01
+  zoomValue: 0.03
   playerHittedValue: 0.5
   enemyDestroyedValue: 1
 --- !u!1 &1199768987
@@ -1417,7 +1417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2046541501
 MonoBehaviour:
   m_ObjectHideFlags: 0

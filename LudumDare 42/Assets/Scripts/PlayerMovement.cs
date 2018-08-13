@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour {
     public LayerMask floorMask;
     public Transform checkFloor;
     public float jumpPower;
+    public static bool PlayerJumpFinished = false;
 
 	// Use this for initialization
 	void Start () {
@@ -33,13 +34,29 @@ public class PlayerMovement : MonoBehaviour {
         if (canMove && onFLoor && Input.GetAxis("Jump") > 0)
         {
             playerAnim.SetBool("InFloor",false);
-            playerRB.velocity = new Vector2(playerRB.velocity.x,0f);
-            playerRB.AddForce(new Vector2 (0,jumpPower),ForceMode2D.Impulse);
-            onFLoor = false;
+            playerAnim.SetBool("jump", true);
+
+            
+
+          
         }
 
+        if (PlayerJumpFinished == true)
+        {
+          
+            playerRB.velocity = new Vector2(playerRB.velocity.x, 0f);
+            playerRB.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
+
+            PlayerJumpFinished = false;
+            playerAnim.SetBool("jump", false);
+            onFLoor = false;
+           
+
+        }
         onFLoor = Physics2D.OverlapCircle(checkFloor.position, checkFloorRadius, floorMask);
-        playerAnim.SetBool("InFloor",onFLoor);
+        playerAnim.SetBool("InFloor", onFLoor);
+
+
 
         float movement = Input.GetAxis("Horizontal");
 
