@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1464442200867688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.32, y: 0.77, z: 0}
+  m_LocalPosition: {x: 6.23, y: 5.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,7 +54,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.9419117, y: 0}
+  m_Offset: {x: 2.1683898, y: -0.007769108}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -65,7 +65,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.41617775, y: 0.3}
+  m_Size: {x: 0.08987808, y: 0.16015911}
   m_EdgeRadius: 0
 --- !u!114 &114032359572499498
 MonoBehaviour:
@@ -94,7 +94,7 @@ LineRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1762c47d12e43fd43a7defdb159fcf94, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,17 +115,17 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -1, y: 0, z: 0}
-  - {x: 5, y: 0, z: 1}
+  - {x: 0, y: 0, z: 0}
+  - {x: 4, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.3
+    widthMultiplier: 0.2
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0.06139314
-        value: 0.30895412
+        value: 0.13186824
         inSlope: 1.4141259
         outSlope: 1.4141259
         tangentMode: 0
@@ -133,46 +133,46 @@ LineRenderer:
         inWeight: 0.23155452
         outWeight: 0.24139842
       - serializedVersion: 3
-        time: 0.30108392
-        value: 0.19858289
-        inSlope: 9.898444
-        outSlope: 9.898444
+        time: 0.29473627
+        value: 0.08399701
+        inSlope: -3.0908813
+        outSlope: -3.0908813
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.14580712
+        inWeight: 0.44681013
+        outWeight: 0.30222407
       - serializedVersion: 3
-        time: 0.6315542
-        value: 0.61904943
-        inSlope: -3.958752
-        outSlope: -3.958752
+        time: 0.6474386
+        value: 0.49404943
+        inSlope: -2.9236903
+        outSlope: -2.9236903
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.18806729
+        inWeight: 0.28624037
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0}
-      key1: {r: 1, g: 1, b: 1, a: 0.90588236}
+      key0: {r: 0.35644355, g: 0.8490566, b: 0.6341885, a: 0}
+      key1: {r: 0.35686275, g: 0.8509804, b: 0.63529414, a: 0.90588236}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 5590
-      ctime1: 58982
+      ctime0: 8288
+      ctime1: 48959
       ctime2: 0
       ctime3: 0
       ctime4: 0
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 13685
-      atime1: 49151
+      atime0: 27178
+      atime1: 45104
       atime2: 0
       atime3: 0
       atime4: 0

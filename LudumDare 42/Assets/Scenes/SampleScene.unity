@@ -113,11 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &5422623 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4301011008646776, guid: 579a935130300a1479474513b13c8748,
-    type: 2}
-  m_PrefabInternal: {fileID: 2136186936}
 --- !u!1 &86817659
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,8 +435,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.463, y: 0.513, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5422623}
+  m_Children: []
   m_Father: {fileID: 1717666297}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1190,6 +1184,34 @@ MonoBehaviour:
   effectSpawnRate: 10
   BulletTrailPrefab: {fileID: 4301011008646776, guid: 579a935130300a1479474513b13c8748,
     type: 2}
+--- !u!1 &1797220032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1797220033}
+  m_Layer: 8
+  m_Name: CheckFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1797220033
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1797220032}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.039999563, y: -2.2199998, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1901694858}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1891932364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,6 +1318,7 @@ Transform:
   - {fileID: 1359828990}
   - {fileID: 188990205}
   - {fileID: 89894243}
+  - {fileID: 1797220033}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1322,6 +1345,11 @@ MonoBehaviour:
   - {fileID: 943933478}
   - {fileID: 1717666298}
   - {fileID: 1891932366}
+  floorMask:
+    serializedVersion: 2
+    m_Bits: 0
+  checkFloor: {fileID: 1797220033}
+  jumpPower: 4
 --- !u!61 &1901694860
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1367,45 +1395,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!1001 &2136186936
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 393893470}
-    m_Modifications:
-    - target: {fileID: 4301011008646776, guid: 579a935130300a1479474513b13c8748, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301011008646776, guid: 579a935130300a1479474513b13c8748, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301011008646776, guid: 579a935130300a1479474513b13c8748, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301011008646776, guid: 579a935130300a1479474513b13c8748, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301011008646776, guid: 579a935130300a1479474513b13c8748, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301011008646776, guid: 579a935130300a1479474513b13c8748, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301011008646776, guid: 579a935130300a1479474513b13c8748, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301011008646776, guid: 579a935130300a1479474513b13c8748, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 579a935130300a1479474513b13c8748, type: 2}
-  m_IsPrefabParent: 0

@@ -19,9 +19,9 @@ public class Weapon : MonoBehaviour {
     Transform firePoint;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 
-        firePoint = transform.Find("FirePoint");
+        firePoint = transform.Find("FirePoint"); 
         if(firePoint == null)
         {
             Debug.LogError("No firePoint? WHAT?!");
@@ -65,7 +65,7 @@ public class Weapon : MonoBehaviour {
             timeToSpawnEffect = Time.time + 1 / effectSpawnRate;
         }
         
-        Debug.DrawLine(firePointPosition,(mousePosition-firePointPosition)*100,Color.cyan);
+        Debug.DrawLine(firePointPosition,(mousePosition-firePointPosition)*100,Color.green);
         if(hit.collider != null)
         {
             Debug.DrawLine(firePointPosition,hit.point,Color.red);            
