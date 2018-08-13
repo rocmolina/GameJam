@@ -10,7 +10,20 @@ public class Enemy : MonoBehaviour {
         public int Health = 100;
     }
 
+    [Header("Enemy Stats")]
     public EnemyStats stats = new EnemyStats();
+
+    [Header("Para el random de la animacion")]
+    public float timeForCalculation;
+    public int timeMin, timeMax;
+
+    public Animator animator;
+
+    void Start()
+    {
+        StartCoroutine("RunOpenMouth");
+    }
+
 
     public void DamageEnemy (int damage)
     {
@@ -20,6 +33,14 @@ public class Enemy : MonoBehaviour {
             Weapon.KillEnemy(this);
         }
 
+    }
+
+    IEnumerator RunOpenMouth()
+    {
+        timeForCalculation = Random.Range(timeMin, timeMax);
+        yield return new WaitForSeconds(timeForCalculation);
+        animator.SetBool("AbrirBoca", !animator.GetBool("AbrirBoca"));
+        StartCoroutine("RunOpenMouth");
     }
  
 
