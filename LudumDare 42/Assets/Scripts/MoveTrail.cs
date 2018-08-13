@@ -5,13 +5,30 @@ using UnityEngine;
 public class MoveTrail : MonoBehaviour {
 
     public int moveSpeed = 230;
+    
+    GameObject player;
+    PlayerMovement playerMovement;	
 
-	// Update is called once per frame
+    void Start()
+    {
+        player = GameObject.Find("PlayerComplete");
+        playerMovement = player.GetComponent<PlayerMovement>();
+    }
+
 	void Update () {
 
-        transform.Translate(Vector3.right * Time.deltaTime * moveSpeed);
+        //if (playerMovement.flipPlayer == true)
+            //transform.Translate(Vector3.right * Time.deltaTime * moveSpeed,Space.Self);
 
-        Destroy(gameObject,1);
+        /*else
+        {
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            transform.Translate(Vector3.right * Time.deltaTime * moveSpeed, Space.Self);
+        }
+       
+
+        this.enabled = false;*/
+        //Destroy(gameObject,0.25f);
 
 	}
 }

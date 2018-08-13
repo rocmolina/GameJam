@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour {
     public int timeMin, timeMax;
 
     public Animator animator;
+    public AudioSource audioSource;
 
     void Start()
     {
@@ -39,7 +40,10 @@ public class Enemy : MonoBehaviour {
     {
         timeForCalculation = Random.Range(timeMin, timeMax);
         yield return new WaitForSeconds(timeForCalculation);
-        animator.SetBool("AbrirBoca", !animator.GetBool("AbrirBoca"));
+        animator.SetBool("AbrirBoca", true);
+        yield return new WaitForSeconds(0.3f);
+        audioSource.Play();
+        animator.SetBool("AbrirBoca", false);
         StartCoroutine("RunOpenMouth");
     }
  

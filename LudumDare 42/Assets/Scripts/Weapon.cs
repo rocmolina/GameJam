@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour {
 
     public PlayerMovement playerMovement;
+    public AudioSource audioSource;
 
     public float fireRate = 0;
     public int Damage = 10;
@@ -12,7 +13,7 @@ public class Weapon : MonoBehaviour {
     float timeToSpawnEffect = 0;
     public float effectSpawnRate = 10;
 
-
+    public float rotationOffset = 0f;
     public Transform BulletTrailPrefab;
 
     float timeToFire = 0;
@@ -57,7 +58,7 @@ public class Weapon : MonoBehaviour {
     {
         Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         Vector2 firePointPosition = new Vector2(firePoint.position.x,firePoint.position.y);
-        RaycastHit2D hit = Physics2D.Raycast(firePointPosition, mousePosition-firePointPosition, 100, whatToHit);
+        RaycastHit2D hit = Physics2D.Raycast(firePointPosition, mousePosition-firePointPosition, 50, whatToHit);
 
         if(Time.time >= timeToSpawnEffect)
         {
@@ -76,12 +77,26 @@ public class Weapon : MonoBehaviour {
                 Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage.");
             }
         }
+
+        audioSource.Play();
     }
 
     void Effect()
     {
-       
-        Instantiate(BulletTrailPrefab, firePoint.position, firePoint.rotation);
+        Debug.Log("Rotacion Firepoint:" + firePoint.rotation.ToString());
+
+        if (playerMovement.flipPlayer == true)
+            Instantiate(BulletTrailPrefab, firePoint.position, firePoint.rotation);
+        else
+        {
+            Quaternion newRotation = firePoint.rotation;
+            //newRotation.z += rotationOffset;
+            newRotation.z *= -1;
+            //newRotation.w *= -1;
+            Debug.Log("New Rotation:" + newRotation.ToString());
+            Instantiate(BulletTrailPrefab, firePoint.position, newRotation);
+        }
+
     }
 
     public static void KillEnemy(Enemy enemy)

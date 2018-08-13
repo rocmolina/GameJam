@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArmRotation : MonoBehaviour {
 
     public PlayerMovement playerMovement;
+    public Weapon weapon;
 
     public int rotationoffset = 90;
     Quaternion initialRotation = new Quaternion();
@@ -32,6 +33,8 @@ public class ArmRotation : MonoBehaviour {
 
             float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;  //find the angle in degrees
             transform.rotation = Quaternion.Euler(0f, 0f, rotZ + rotationoffset);
+
+            weapon.rotationOffset = (180 - transform.rotation.z) - transform.rotation.z; 
         }
 
         else
