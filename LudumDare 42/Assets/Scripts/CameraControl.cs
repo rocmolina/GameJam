@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CameraControl : MonoBehaviour {
 
-   
+   [Header("Stats")]
+
     public float xMargin = 1.5f;            // Distance in the x axis the player can move before the camera follows. 
     public float yMargin = 1.5f;            // Distance in the y axis the player can move before the camera follows.  
     public float xSmooth = 1.5f;            // How smoothly the camera catches up with its target movement in the x axis.  
@@ -12,6 +15,9 @@ public class CameraControl : MonoBehaviour {
     private Vector2 maxXAndY;               // The maximum x and y coordinates the camera can have.
     private Vector2 minXAndY;               // The minimum x and y coordinates the camera can have. 
     public Transform player;                // Reference to the player's transform. 
+
+
+    [Header("Atributos de camara")]
 
     public float maxZoom = 0.4f;
     public float minZoom = 5.0f;
@@ -24,6 +30,11 @@ public class CameraControl : MonoBehaviour {
     public static bool enemyDestroyed = false;
     public static bool playerHitted = false;
     private Camera cam;
+
+    [Header("Objetos externos")]
+
+    public ScoreScript score;
+
 
     void Awake()
     {
@@ -66,6 +77,11 @@ public class CameraControl : MonoBehaviour {
 
         if (enemyDestroyed == true)
             enemyDestroyedZoom();
+
+        if (currentZoom <= maxZoom)
+        {
+            GameOver();
+        }
 
     }
 
@@ -158,6 +174,14 @@ public class CameraControl : MonoBehaviour {
         // player in the y axis is greater than the y margin.        
         return Mathf.Abs(transform.position.y - player.position.y) > yMargin;
 
+    }
+
+    public void GameOver()
+    {
+        score.gameover = true;
+
+        if (Input.GetKey(KeyCode.R))
+            SceneManager.LoadSceneAsync(1);
     }
 
 }

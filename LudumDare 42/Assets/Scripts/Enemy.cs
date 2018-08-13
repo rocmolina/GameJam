@@ -13,24 +13,36 @@ public class Enemy : MonoBehaviour {
     [Header("Enemy Stats")]
     public EnemyStats stats = new EnemyStats();
 
-    [Header("Para el random de la animacion")]
+    [Header("Animacion")]
     public float timeForCalculation;
     public int timeMin, timeMax;
+    public SpriteRenderer boca;
+    public Sprite bocaAbierta;
+    public GameObject alienGraphics;
+    public ParticleSystem particulas;
 
+    [Header("Audio")]
     public Animator animator;
-    public AudioSource audioSource;
+    public AudioSource audioSource;    
+    public AudioClip Hablado, Muerte;
 
     void Start()
     {
         StartCoroutine("RunOpenMouth");
     }
 
+    void FixedUpdate()
+    {
+        
+    }
 
     public void DamageEnemy (int damage)
     {
-        stats.Health -= damage;
+        stats.Health -= 10;
         if(stats.Health <= 0)
         {
+            StopAllCoroutines();
+            StartCoroutine("Death");
             Weapon.KillEnemy(this);
         }
 
@@ -45,6 +57,17 @@ public class Enemy : MonoBehaviour {
         audioSource.Play();
         animator.SetBool("AbrirBoca", false);
         StartCoroutine("RunOpenMouth");
+    }
+
+    IEnumerator Death()
+    {
+        boca.sprite = bocaAbierta;
+        audioSource.clip = Muerte;
+        audioSource.Play();
+        alienGraphics.SetActive(false);
+        particulas.Play();
+        yield return new WaitForSeconds(0.5f);
+
     }
  
 
