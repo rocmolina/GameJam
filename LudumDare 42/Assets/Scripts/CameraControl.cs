@@ -128,13 +128,25 @@ public class CameraControl : MonoBehaviour {
 
     }
 
-    public void playerHittedZoom()
-    {
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, cam.orthographicSize - playerHittedValue, Time.fixedDeltaTime * smooth);
-        currentZoom = cam.orthographicSize;
-        playerHitted = false;
-        activeConstantZoom = true;
+    public void playerHittedZoom() {
 
+        if (currentZoom - playerHittedValue <= maxZoom)
+        {
+
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, maxZoom, 1);
+            currentZoom = cam.orthographicSize;
+            playerHitted = false;
+            activeConstantZoom = true;
+
+        }
+        else
+        {
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, cam.orthographicSize - playerHittedValue, 1);
+            currentZoom = cam.orthographicSize;
+            playerHitted = false;
+            activeConstantZoom = true;
+
+        }
     }
 
     public void enemyDestroyedZoom()

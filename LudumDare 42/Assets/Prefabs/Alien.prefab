@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5afb820d8b699478349e80f73d6d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRadius: 10
+  visionRadius: 15
   speed: 5
 --- !u!198 &198185907226925970
 ParticleSystem:
